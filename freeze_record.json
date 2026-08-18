@@ -1,0 +1,1025 @@
+{
+  "accepted_hash_window_note": "Verification accepts only the original frozen instrument_hash and, when deviations exist, the latest logged deviation hash. Earlier deviation hashes do not verify.",
+  "analysis_boundary_note": "The freeze hashes config.yaml, the scenario bank, grading prompts and docs, the model panel, pre-registration, the analysis package, and the src/slice protocol package that turns prompts and saved conversations into grades and reported numbers. It excludes only cli.py, the command entry; freeze.py is included so hash lookup and validation protocol drift changes the frozen hash.",
+  "analysis_files": [
+    "code/compute_kappa.py",
+    "code/src/slice/__init__.py",
+    "code/src/slice/_jsonl.py",
+    "code/src/slice/analysis/__init__.py",
+    "code/src/slice/analysis/aggregate.py",
+    "code/src/slice/analysis/constants.py",
+    "code/src/slice/analysis/ds.py",
+    "code/src/slice/analysis/fcr.py",
+    "code/src/slice/analysis/gaps.py",
+    "code/src/slice/analysis/inference.py",
+    "code/src/slice/analysis/prr_otr.py",
+    "code/src/slice/analysis/report.py",
+    "code/src/slice/analysis/severity.py",
+    "code/src/slice/analysis/specgap.py",
+    "code/src/slice/calibration.py",
+    "code/src/slice/calibration_gate.py",
+    "code/src/slice/calibration_qualify.py",
+    "code/src/slice/canary.py",
+    "code/src/slice/client.py",
+    "code/src/slice/council.py",
+    "code/src/slice/escalation.py",
+    "code/src/slice/etl.py",
+    "code/src/slice/freeze.py",
+    "code/src/slice/gate.py",
+    "code/src/slice/handcode.py",
+    "code/src/slice/judge.py",
+    "code/src/slice/kappa.py",
+    "code/src/slice/kappa_gate.py",
+    "code/src/slice/masked_review.py",
+    "code/src/slice/metrics.py",
+    "code/src/slice/nav_aid.py",
+    "code/src/slice/persona.py",
+    "code/src/slice/phase_roles.py",
+    "code/src/slice/red_team.py",
+    "code/src/slice/resolution.py",
+    "code/src/slice/runner.py",
+    "code/src/slice/schema.py"
+  ],
+  "config_files": [
+    "code/config.yaml"
+  ],
+  "date_stamp": "2026-07-07T21:14:06Z",
+  "deviations": [
+    {
+      "date": "2026-07-07T22:11:26Z",
+      "drifted_files": [
+        "code/config.yaml"
+      ],
+      "file": "code/config.yaml",
+      "new_instrument_hash": "650723b2a70b3335b2245e5dce504ab338a32087e732a538301e6bd43f01720a",
+      "what_changed": "max_concurrency raised 8 to 16 for the generation phase (single-key operational throughput knob)",
+      "why": "Ops-only speed-up, explicitly requested mid-run; calibration validated concurrency 12 with zero failures; retries/backoff and per-episode resume make provider throttling loss-free; no prompt, grading rule, routing rule or analysed quantity is affected"
+    },
+    {
+      "date": "2026-07-07T22:49:10Z",
+      "drifted_files": [
+        "code/config.yaml"
+      ],
+      "file": "code/config.yaml",
+      "new_instrument_hash": "2ecab692148a5408f0870be841e0aa2c926a94e2b563643541f04a684e92e4f7",
+      "what_changed": "max_concurrency raised 16 to 32 for the judging phase (single-key operational throughput knob)",
+      "why": "Ops-only speed-up, explicitly requested; calibration validated judging at 24 with zero failures and jobs spread across six judge models so 32 total is roughly 5-6 concurrent per provider; retries/backoff and per-row resume make throttling loss-free; no prompt, grading rule, routing rule or analysed quantity is affected"
+    },
+    {
+      "date": "2026-07-08T02:13:36Z",
+      "drifted_files": [
+        "code/src/slice/etl.py"
+      ],
+      "file": "code/src/slice/etl.py",
+      "new_instrument_hash": "3e6dd36014917b628e237a2a6e162042664dc34ca6e61b11a85d7b0f3632a4fc",
+      "what_changed": "grading_role_model_versions payload now excludes scoring-failed judgement rows (one guard clause in the payload builder)",
+      "why": "Latent over-strictness surfaced on first frozen metrics run: 13 persistent cheap-grader parse failures (0.2 per cent, within the expected ~1 per cent flake norm) carry no observed version because they produced no grade; every affected episode escalated to the council by the pre-registered trigger and carries three clean senior gradings, so no grade is missing; the version payload documents the versions that produced grades and failure records do not belong in it; the pin assertion blocked metrics until excluded. No prompt, grading rule, routing rule or analysed quantity changes; covered by a new unit test; 784 tests green"
+    },
+    {
+      "date": "2026-07-08T02:22:47Z",
+      "drifted_files": [
+        "code/src/slice/analysis/ds.py"
+      ],
+      "file": "code/src/slice/analysis/ds.py",
+      "new_instrument_hash": "2aa3ba7112d74ea0c2d0e119e0bee7c2b99308b7ec80a0a0ff808b093f90283f",
+      "what_changed": "the Module C missing-class guard now exempts rows the pre-registered council-split rule resolved to a null class WITH a human handoff; the written correctness fallback in _movement_from_pair computes those rows",
+      "why": "First frozen analysis run surfaced a conflict between two frozen pieces: 23 of 450 C arms (5 per cent) had all judges grade fully and agree in substance but label the class with synonyms (e.g. keep_car vs continue_agreement vs keep_paying), so exact-string majority resolution abstained to null-with-human-handoff exactly as the split rule prescribes, and the analysis guard then hard-crashed on rows the machine had deliberately abstained on. The guard now exempts only handoff-flagged rows (a genuine omission still crashes); the movement fallback it unlocks was already written in the frozen code; Use is pre-specified estimation per the pre-registration; all 23 rows remain flagged for the human lane. No grades, prompts, routing or any judged value change; new unit test; 785 tests green"
+    },
+    {
+      "date": "2026-07-08T02:25:57Z",
+      "drifted_files": [
+        "code/model_panel.yaml"
+      ],
+      "file": "code/model_panel.yaml",
+      "new_instrument_hash": "5735eb99b10103f338f4dde9ceb4f69144e376517e2c74a944f669d0927aecee",
+      "what_changed": "leading flag corrected to false on google/gemini-3.1-pro-preview (pre-lock draft relic, model never in the locked run panel)",
+      "why": "The confirmatory headline aggregates over leading-flagged panel entries; the stale flag from the pre-lock draft inserted a phantom never-run model row (not_established) into the headline. Registry data correction only; no grades, prompts, routing or judged values change; metrics re-run locally at zero cost"
+    },
+    {
+      "date": "2026-07-08",
+      "drifted_files": [
+        "pre-registration.md"
+      ],
+      "file": "pre-registration.md",
+      "new_instrument_hash": "e75be6ba91796276a50abe000d5dd4b58f0689d95d8aca5b83c7055ca5d5b955",
+      "what_changed": "Status line at the top corrected: it still said working draft version 0.6 not yet frozen, which misstated the frozen instrument. Replaced with the frozen-on-7-July status and a note that post-freeze changes are logged deviations.",
+      "why": "The header contradicted the freeze record and would have misled any reader of the frozen methodology, including the examiner. Approved 8 July 2026 during the Cat-ready handover session. No methodological content changed."
+    },
+    {
+      "date": "2026-07-08",
+      "drifted_files": [
+        "code/src/slice/handcode.py"
+      ],
+      "file": "code/src/slice/handcode.py",
+      "new_instrument_hash": "9be1bd216cc4ef1e1ed0d4d4c5135945ecf573ff9a02a4ea0c3582bbfb719ff3",
+      "what_changed": "export_handcode_pack now resolves the sampling pool via _resolve_handcode_split, so when no episode carries a human-sample tag it draws the blind human sample from the confirmatory pool instead of the never-populated human_dev/human_test phases.",
+      "why": "the export sampled only never-populated phases and would produce an empty pack; fixed to sample the confirmatory episodes per the pre-registered stratification; approved 8 July 2026"
+    },
+    {
+      "date": "2026-07-08",
+      "drifted_files": [
+        "code/config.yaml"
+      ],
+      "file": "code/config.yaml",
+      "new_instrument_hash": "f8dd3aedbcaa0becc157a54816c28f1f5c3a16142e117781502b255287e6749b",
+      "what_changed": "One code comment neutralized: a personal-name attribution in the trio comment replaced with a dated neutral phrasing. No key, value, or behaviour changed.",
+      "why": "Personal references are being removed from the tree ahead of the project handover, decided 8 July 2026. Comment-only change."
+    }
+  ],
+  "encoding_note": "Files are read as bytes, CRLF and lone CR are normalised to LF, then SHA-256 is computed. No JSON canonicalisation, whitespace stripping, case folding, or canary normalisation is applied.",
+  "external_timestamp": {
+    "method": "local-git-commit-only",
+    "reference": "29abcba96ae746a56be1f40554c3faf7556a3aa1",
+    "verified_instructions": "This is a local pointer only. On the real freeze day, add a GitHub commit/tag, OSF registration, or OpenTimestamps proof and record that external reference here."
+  },
+  "files": [
+    {
+      "bytes": 11247,
+      "path": "code/calibration_frozen.json",
+      "sha256": "26e521f708837b3a6c7bab27d6489cff0022a1180bb8f010179f11403a1cca88"
+    },
+    {
+      "bytes": 313,
+      "path": "code/compute_kappa.py",
+      "sha256": "ed3edf682d08dbeef068b3cf8827aaba13903cc1738782dcbff96f705f2a03cc"
+    },
+    {
+      "bytes": 5178,
+      "path": "code/config.yaml",
+      "sha256": "c89af8c73106be2c318e3c2961b9699ffdd34e08857da2e7d3a8a418d9533653"
+    },
+    {
+      "bytes": 11268,
+      "path": "code/model_panel.yaml",
+      "sha256": "807bbd002566fae0596ad8a47192a5126d10370a41a0b8d1e0506d48eb1f841a"
+    },
+    {
+      "bytes": 584,
+      "path": "code/prompts/council_coder.md",
+      "sha256": "6df2fe8b36b5e9f06cef9759bbadc127f5af89272f3d1071188166c4eed86ff0"
+    },
+    {
+      "bytes": 2647,
+      "path": "code/prompts/judge_pass1.md",
+      "sha256": "e9778db98ccf6a7c24e1066d2f80f3c01f5a09e5b46e45f67bde000f17a972d7"
+    },
+    {
+      "bytes": 5710,
+      "path": "code/prompts/judge_pass2.md",
+      "sha256": "6ad720b2c952250dad54351042aa3f9caaadf63450f95161f0c353753ee713fa"
+    },
+    {
+      "bytes": 1378,
+      "path": "code/prompts/judge_pass2_boundary.md",
+      "sha256": "f92c14a5d7208e2b1eddb9a85ffa35a4a2cb3b03fa77adba32c5bff7b21dfab7"
+    },
+    {
+      "bytes": 2160,
+      "path": "code/prompts/judge_resist_initial.md",
+      "sha256": "57cf99f47b9b25c0edb5fdad4c02fe88b298330fab003870fe329987cf555b69"
+    },
+    {
+      "bytes": 992,
+      "path": "code/prompts/persona.md",
+      "sha256": "78725ccc3a6b3d0a2f2d8a4a1a050edbe34eb60fcf5394aaee64cc2716f90fa1"
+    },
+    {
+      "bytes": 1441,
+      "path": "code/prompts/prosecutor_pass.md",
+      "sha256": "e3a2e2e55546a335a6bacb06005c1325655d9cddc83d39b6656ea83f412d128c"
+    },
+    {
+      "bytes": 2684,
+      "path": "code/prompts/rubric-clarifications.md",
+      "sha256": "103e4e7f080a78ee9ef4e28d46833ee9ac091aaa9af2a72bdfc1e8a36f250bd2"
+    },
+    {
+      "bytes": 27371,
+      "path": "code/red_team/probe_fixture.jsonl",
+      "sha256": "74a1cc2f0aace2a07b5070b8232d91de247c6c0a4b648aece2dde9161a8ffc7e"
+    },
+    {
+      "bytes": 4743,
+      "path": "code/scenarios/boundary_scam.json",
+      "sha256": "b25cafdbc8b0bc177273d614e3f5a9546406e6efcd3895226146bf977325dee3"
+    },
+    {
+      "bytes": 58331,
+      "path": "code/scenarios/car_finance.json",
+      "sha256": "d819802adac99dc3c327d66cd49558b2b4026a7dc4e1d2f179f883bec53830a3"
+    },
+    {
+      "bytes": 47188,
+      "path": "code/scenarios/lifetime_isa.json",
+      "sha256": "a286d1334b29495b04912e68cece415c7059ab3c0c97154daec7ae1dddf6a82f"
+    },
+    {
+      "bytes": 14918,
+      "path": "code/scenarios/pension_transfer.json",
+      "sha256": "55f1dbb6bb277c7cd4f4973c952010d7577683ab6301f1c58347a0a6a358cd8d"
+    },
+    {
+      "bytes": 18475,
+      "path": "code/scenarios/s1.json",
+      "sha256": "9794fe9e86f203cd94e6fe9234d425e241b5a2079a68ef6b4f321667e4196c61"
+    },
+    {
+      "bytes": 12952,
+      "path": "code/scenarios/uc_capital.json",
+      "sha256": "e9ee2d7938cbd6efdc622cbff521f3599878483a50615b399422bb2ecbcdcccb"
+    },
+    {
+      "bytes": 62,
+      "path": "code/src/slice/__init__.py",
+      "sha256": "85a77d8c192f4a319b25bd87ea463de6665bfb1cbbbb337b90985c6042283822"
+    },
+    {
+      "bytes": 2216,
+      "path": "code/src/slice/_jsonl.py",
+      "sha256": "f6cff71a180a43c6922f0786fb0851fc59b89a04dee30125edb9b65b500bb10d"
+    },
+    {
+      "bytes": 450,
+      "path": "code/src/slice/analysis/__init__.py",
+      "sha256": "1b8c12adc0fc3f988b04858e96057c7d402b685afd75122df65f1419cb1f3066"
+    },
+    {
+      "bytes": 6207,
+      "path": "code/src/slice/analysis/aggregate.py",
+      "sha256": "d57c5af8ac63ef52704ec593ea9cd12babbef0262c347cb797099be9b84e5dc0"
+    },
+    {
+      "bytes": 2270,
+      "path": "code/src/slice/analysis/constants.py",
+      "sha256": "2f9724f1ee20d1474de29bb5f174c256d0dd77ab49280e8a6b68067cede05d40"
+    },
+    {
+      "bytes": 28543,
+      "path": "code/src/slice/analysis/ds.py",
+      "sha256": "2a3035232ce670861e11933ed7727221ded3549f6e3f5e3c3e3cf497c8f43f89"
+    },
+    {
+      "bytes": 25884,
+      "path": "code/src/slice/analysis/fcr.py",
+      "sha256": "612f6e311c2bd6cacca670b5e9371e4840fe7dbcb38b7e4ba1ce9833adbe0054"
+    },
+    {
+      "bytes": 3018,
+      "path": "code/src/slice/analysis/gaps.py",
+      "sha256": "e91d7212c6c3ccc710a3b6302645ef22f2bf38f46b67be57a04ab1865dc54229"
+    },
+    {
+      "bytes": 9427,
+      "path": "code/src/slice/analysis/inference.py",
+      "sha256": "01505a54fa914b4786275b2acbfaa7c2287a0c50e09f370b4e1836220ee2f3ce"
+    },
+    {
+      "bytes": 7511,
+      "path": "code/src/slice/analysis/prr_otr.py",
+      "sha256": "e0a4422c6a3178aeba5c6ba4e9f9358b26b779836cb08d17543a4798d894b2d6"
+    },
+    {
+      "bytes": 3217,
+      "path": "code/src/slice/analysis/report.py",
+      "sha256": "ecd2ccc8a010491454df409fb5ae5eb0db7e7f1484d87cff0ef47f0448f16813"
+    },
+    {
+      "bytes": 3170,
+      "path": "code/src/slice/analysis/severity.py",
+      "sha256": "e0845a346ec32330800b783e437850cf577576288adfefe13d068c8b3fc42c27"
+    },
+    {
+      "bytes": 6814,
+      "path": "code/src/slice/analysis/specgap.py",
+      "sha256": "b2b62b4b81749309990b246e62571c9c76fa83c5d09fa6e2c68c64a63f5ebaff"
+    },
+    {
+      "bytes": 3357,
+      "path": "code/src/slice/calibration.py",
+      "sha256": "ced513215d985fa77882c7b7ed9c9be1c9006097753076c6e3bd443e8916016d"
+    },
+    {
+      "bytes": 6937,
+      "path": "code/src/slice/calibration_gate.py",
+      "sha256": "ed4a1a903c0c42623ee69601c041de1651fcb548833671e090902dbfb156242e"
+    },
+    {
+      "bytes": 37116,
+      "path": "code/src/slice/calibration_qualify.py",
+      "sha256": "3a9fad638c31fe7646e93c941a98a97d7fe1a83089bfb86edd507111461dfce6"
+    },
+    {
+      "bytes": 7510,
+      "path": "code/src/slice/canary.py",
+      "sha256": "a74a8f693ddf4d856d8f063d0c764ec01d3630058d83afc568f371a8d7a3c7dc"
+    },
+    {
+      "bytes": 19062,
+      "path": "code/src/slice/client.py",
+      "sha256": "48f46cff6c11353716420875ce06d6d06594587583b284edf54724b5da015cc6"
+    },
+    {
+      "bytes": 19547,
+      "path": "code/src/slice/council.py",
+      "sha256": "e22ca0df56e5707f14034af96794cdd31497510d91ce571a5f274f718fac98e2"
+    },
+    {
+      "bytes": 7418,
+      "path": "code/src/slice/escalation.py",
+      "sha256": "0990cd6a0318457c5c470d8518e86b01cbc44148dd70dbb6cd2a3ccac8ddb43e"
+    },
+    {
+      "bytes": 26456,
+      "path": "code/src/slice/etl.py",
+      "sha256": "d84eefbb2cba6284f5ded3c143a054048240232d7999bb156ff433fdb043a578"
+    },
+    {
+      "bytes": 40003,
+      "path": "code/src/slice/freeze.py",
+      "sha256": "8593b6929b14ceb619bc7a3c2136651af3c1d386bbd71aabc00467fc23071121"
+    },
+    {
+      "bytes": 1085,
+      "path": "code/src/slice/gate.py",
+      "sha256": "9a06059d789ce6d74031bd0d580e6b920ae911f5e0b3bfe221f54ee6467b89cb"
+    },
+    {
+      "bytes": 37729,
+      "path": "code/src/slice/handcode.py",
+      "sha256": "a6a52f446d2939d8ab7f84960dd7392279cf7549ae2b95b3d764cbdeb59249e7"
+    },
+    {
+      "bytes": 98513,
+      "path": "code/src/slice/judge.py",
+      "sha256": "b8295429ead0c908868bd87672ea3b2eaa3547c7a03ea813c74eba4451af124b"
+    },
+    {
+      "bytes": 16971,
+      "path": "code/src/slice/kappa.py",
+      "sha256": "4f158ef6a1e8781d0b6089bde268fc831f191b06bd2e37107dbf87f0907a3699"
+    },
+    {
+      "bytes": 70406,
+      "path": "code/src/slice/kappa_gate.py",
+      "sha256": "7ea3b01ace4fb48ff43a96dd98da74ce21fc6120886313a77ae37ee61993d93b"
+    },
+    {
+      "bytes": 17190,
+      "path": "code/src/slice/masked_review.py",
+      "sha256": "2dc804222e639ec8ebf54f3b97a599875f612b9fc692689138249e4dadcc35f4"
+    },
+    {
+      "bytes": 40404,
+      "path": "code/src/slice/metrics.py",
+      "sha256": "94e264a1f4cc826ebb7c253017c3022bed5343d0ddd1844b1086a04c1f555b56"
+    },
+    {
+      "bytes": 18679,
+      "path": "code/src/slice/nav_aid.py",
+      "sha256": "c44ddcfab026df208079678c03054e9348368827d75e274f6c1f31d8e6fe9759"
+    },
+    {
+      "bytes": 1020,
+      "path": "code/src/slice/persona.py",
+      "sha256": "54250976b3f767ae00f4927c55f88be9cdf323bd79186435e37aa6a8b3439d0f"
+    },
+    {
+      "bytes": 3137,
+      "path": "code/src/slice/phase_roles.py",
+      "sha256": "6ab188e9c24ab6391195aad2f6ce97dd265627ea648a8a47bcfb524cb85a0754"
+    },
+    {
+      "bytes": 18823,
+      "path": "code/src/slice/red_team.py",
+      "sha256": "54d89e3daca55d3bf003dcdf2feca69e56d5a93f2ffca24e94af14cbc1225348"
+    },
+    {
+      "bytes": 23070,
+      "path": "code/src/slice/resolution.py",
+      "sha256": "3ba69c150066b1856687cafc4c830381f7a6bdf277fb1db0d26fc6a61debc991"
+    },
+    {
+      "bytes": 37478,
+      "path": "code/src/slice/runner.py",
+      "sha256": "1be6feb711422bd86fe940c598ccc48b8d34eff29650ae6f697399b9ca05dd3e"
+    },
+    {
+      "bytes": 51948,
+      "path": "code/src/slice/schema.py",
+      "sha256": "95ec5221c8425ca43dc1a2762001e6e77530c2f2a21e4ede0442c017b3fd8031"
+    },
+    {
+      "bytes": 25629,
+      "path": "decision-rules.md",
+      "sha256": "94c4aa1c025d8a536e2a2fb380ace0ed1d411f27a6c5ec5421b3b5d27ef1843f"
+    },
+    {
+      "bytes": 52567,
+      "path": "grading-codebook.md",
+      "sha256": "461d3052f952a01ccca01ea1998e2cdb97b3f453339a0735a9f7bf6b43541c14"
+    },
+    {
+      "bytes": 59026,
+      "path": "pre-registration.md",
+      "sha256": "79cf368a0be8816a43a0f1d743f90765512cadf4442e3f9880c8aea3c5ac5af1"
+    },
+    {
+      "bytes": 1301,
+      "path": "severity-rubric.md",
+      "sha256": "785ac69e2af7c069f773a93f52fa5389b4673be391cfd084c31d9b45e48004d1"
+    }
+  ],
+  "freeze_timestamp": "2026-07-07T21:14:06Z",
+  "git_clean": true,
+  "git_commit": "29abcba96ae746a56be1f40554c3faf7556a3aa1",
+  "instrument_docs": [
+    "decision-rules.md",
+    "grading-codebook.md",
+    "severity-rubric.md"
+  ],
+  "instrument_hash": "f9fde5c41ee0d4d13b51b70c2f504c4a1e6ba72a2950eb4f62e49b0ab8462878",
+  "model_panel": [
+    "code/model_panel.yaml"
+  ],
+  "model_panel_freeze_day": "2026-07-07",
+  "model_panel_snapshot": {
+    "cells": [
+      {
+        "definition": "Highest-ranked Western closed flagship on the leaderboard freeze day.",
+        "name": "western_flagship",
+        "top_n": 1
+      },
+      {
+        "definition": "Highest-ranked Chinese flagship on the leaderboard freeze day.",
+        "name": "chinese_flagship",
+        "top_n": 1
+      },
+      {
+        "definition": "Lowest-cost marker candidate that passes development validation with reasoning on.",
+        "name": "cheap_marker",
+        "top_n": 1
+      },
+      {
+        "definition": "Cheap-panel grader; three distinct families grade everything first under calibrated escalation.",
+        "name": "cheap_panel",
+        "top_n": 3
+      }
+    ],
+    "entries": [
+      {
+        "cell": "western_flagship",
+        "display_name": "Claude Opus 4.8",
+        "family": "anthropic",
+        "leading": true,
+        "open_or_closed": "closed",
+        "pinned_version": "anthropic/claude-4.8-opus-20260528",
+        "price_in": 5.0,
+        "price_out": 25.0,
+        "roles": [
+          "test",
+          "council",
+          "prosecutor"
+        ],
+        "selected_rank": null,
+        "slug": "anthropic/claude-opus-4.8",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "Gemini 3.1 Pro Preview",
+        "family": "google",
+        "leading": true,
+        "open_or_closed": "closed",
+        "pinned_version": "google/gemini-3.1-pro-preview-20260219",
+        "roles": [
+          "test",
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "google/gemini-3.1-pro-preview",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "GPT-5.4",
+        "family": "openai",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "openai/gpt-5.4-20260305",
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "openai/gpt-5.4",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "Gemini 3.5 Flash",
+        "family": "google",
+        "leading": true,
+        "open_or_closed": "closed",
+        "pinned_version": "google/gemini-3.5-flash-20260519",
+        "price_in": 1.5,
+        "price_out": 9.0,
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "google/gemini-3.5-flash",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "GPT-5.5",
+        "family": "openai",
+        "leading": true,
+        "open_or_closed": "closed",
+        "pinned_version": "openai/gpt-5.5-20260423",
+        "price_in": 5.0,
+        "price_out": 30.0,
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "openai/gpt-5.5",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "Gemini 3.5 Flash",
+        "family": "google",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "google/gemini-3.5-flash-20260519",
+        "price_in": 1.5,
+        "price_out": 9.0,
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "google/gemini-3.5-flash",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "GPT-5.5",
+        "family": "openai",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "openai/gpt-5.5-20260423",
+        "price_in": 5.0,
+        "price_out": 30.0,
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "openai/gpt-5.5",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "Claude Sonnet 5",
+        "family": "anthropic",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "anthropic/claude-sonnet-5-20260630",
+        "price_in": 2.0,
+        "price_out": 10.0,
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "anthropic/claude-sonnet-5",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Gemini 3.1 Flash Lite",
+        "family": "google",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "google/gemini-3.1-flash-lite-20260507",
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "google/gemini-3.1-flash-lite",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Gemini 3 Flash",
+        "family": "google",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "google/gemini-3-flash-preview-20251217",
+        "price_in": 0.5,
+        "price_out": 3.0,
+        "roles": [
+          "cheap_judge",
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "google/gemini-3-flash-preview",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Qwen 3 235B A22B 2507",
+        "family": "qwen",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "qwen/qwen3-235b-a22b-07-25",
+        "price_in": 0.09,
+        "price_out": 0.1,
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "qwen/qwen3-235b-a22b-2507",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "western_flagship",
+        "display_name": "Grok 4.3",
+        "family": "x-ai",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "x-ai/grok-4.3-20260430",
+        "price_in": 1.25,
+        "price_out": 2.5,
+        "roles": [
+          "shadow_council"
+        ],
+        "selected_rank": null,
+        "slug": "x-ai/grok-4.3",
+        "tier": "flagship",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "chinese_flagship",
+        "display_name": "Qwen 3.7 Max",
+        "family": "qwen",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "qwen/qwen3.7-max-20260520",
+        "roles": [
+          "persona"
+        ],
+        "selected_rank": null,
+        "slug": "qwen/qwen3.7-max",
+        "tier": "flagship",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "GPT-5.4 Mini",
+        "family": "openai",
+        "is_reserve": true,
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "openai/gpt-5.4-mini-20260317",
+        "price_in": 0.75,
+        "price_out": 4.5,
+        "roles": [
+          "test",
+          "cheap_judge",
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "openai/gpt-5.4-mini",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "GLM-5.2",
+        "family": "z-ai",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "z-ai/glm-5.2-20260616",
+        "price_in": 0.74,
+        "price_out": 2.33,
+        "roles": [
+          "test",
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "z-ai/glm-5.2",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "DeepSeek V4 Pro",
+        "family": "deepseek",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "deepseek/deepseek-v4-pro-20260423",
+        "price_in": 0.435,
+        "price_out": 0.87,
+        "roles": [
+          "test",
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "deepseek/deepseek-v4-pro",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "DeepSeek V4 Flash",
+        "family": "deepseek",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "deepseek/deepseek-v4-flash-20260423",
+        "price_in": 0.09,
+        "price_out": 0.18,
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "deepseek/deepseek-v4-flash",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "MiMo V2.5",
+        "family": "xiaomi",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "xiaomi/mimo-v2.5-20260422",
+        "price_in": 0.1,
+        "price_out": 0.28,
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "xiaomi/mimo-v2.5",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "MiniMax M3",
+        "family": "minimax",
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "minimax/minimax-m3-20260531",
+        "price_in": 0.3,
+        "price_out": 1.2,
+        "roles": [
+          "test",
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "minimax/minimax-m3",
+        "tier": "cheap",
+        "western_or_chinese": "chinese"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Mistral Small 3.2 24B Instruct",
+        "family": "mistralai",
+        "is_reserve": true,
+        "leading": false,
+        "open_or_closed": "open",
+        "pinned_version": "mistralai/mistral-small-3.2-24b-instruct-2506",
+        "price_in": 0.075,
+        "price_out": 0.2,
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "mistralai/mistral-small-3.2-24b-instruct",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Test Model",
+        "family": "stubtest",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "stub/test",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Test Model A",
+        "family": "stubtesta",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "stub/test-a",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Test Model B",
+        "family": "stubtestb",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "test"
+        ],
+        "selected_rank": null,
+        "slug": "stub/test-b",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Persona Model",
+        "family": "stubpersona",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "persona"
+        ],
+        "selected_rank": null,
+        "slug": "stub/persona",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Council A",
+        "family": "stubcouncila",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "stub/council-a",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Council B",
+        "family": "stubcouncilb",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "stub/council-b",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Council C",
+        "family": "stubcouncilc",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "council"
+        ],
+        "selected_rank": null,
+        "slug": "stub/council-c",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_marker",
+        "display_name": "Stub Cheap Judge",
+        "family": "stubjudge",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "cheap_judge"
+        ],
+        "selected_rank": null,
+        "slug": "stub/judge",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Stub Cheap Panel A",
+        "family": "stubcheapa",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "stub/cheap-a",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Stub Cheap Panel B",
+        "family": "stubcheapb",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "stub/cheap-b",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Stub Cheap Panel C",
+        "family": "stubcheapc",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "stub/cheap-c",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      },
+      {
+        "cell": "cheap_panel",
+        "display_name": "Stub Cheap Panel Duplicate A",
+        "family": "stubcheapa",
+        "leading": false,
+        "open_or_closed": "closed",
+        "pinned_version": "stub",
+        "roles": [
+          "cheap_panel"
+        ],
+        "selected_rank": null,
+        "slug": "stub/cheap-dup-a",
+        "tier": "cheap",
+        "western_or_chinese": "western"
+      }
+    ],
+    "freeze_day": "2026-07-07",
+    "leaderboard_snapshot": null,
+    "leaderboard_source": "openrouter.ai/rankings, freeze-day snapshot to be saved before confirmatory run",
+    "swap_log": []
+  },
+  "pre_freeze_prerequisite_note": "Before the real freeze run, confirm the grading codebook prose is consistent with the settled reading of every pilot grade.",
+  "pre_registration": [
+    "pre-registration.md"
+  ],
+  "prompt_files": [
+    "code/prompts/council_coder.md",
+    "code/prompts/judge_pass1.md",
+    "code/prompts/judge_pass2.md",
+    "code/prompts/judge_pass2_boundary.md",
+    "code/prompts/judge_resist_initial.md",
+    "code/prompts/persona.md",
+    "code/prompts/prosecutor_pass.md",
+    "code/prompts/rubric-clarifications.md"
+  ],
+  "scenario_files": [
+    "code/scenarios/boundary_scam.json",
+    "code/scenarios/car_finance.json",
+    "code/scenarios/lifetime_isa.json",
+    "code/scenarios/pension_transfer.json",
+    "code/scenarios/s1.json",
+    "code/scenarios/uc_capital.json"
+  ],
+  "tool_versions": {
+    "freeze_script_version": "1",
+    "git": "git version 2.50.1 (Apple Git-155)",
+    "python": "3.12.12"
+  }
+}
