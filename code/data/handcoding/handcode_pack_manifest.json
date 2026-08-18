@@ -1,0 +1,1518 @@
+{
+  "anchor_drawn_n": 150,
+  "anchor_requested_n": 150,
+  "audit_drawn_n": 100,
+  "dev_test_split_ratio": 0.7,
+  "duplicate_fraction": 0.1,
+  "duplicate_map": {
+    "T02BE9C8231": "T75783EECA3",
+    "T0E7CE95E46": "T6A3A0FC8D9",
+    "T2127033405": "T2AC1A963DE",
+    "T241C972683": "T3BDEC29DC8",
+    "T260A2B2643": "T98B59F1248",
+    "T2ADC958030": "TBBBAEDF7B1",
+    "T3E43D04B99": "TE2CB3853E6",
+    "T408FE16687": "TCB75E7E4C7",
+    "T57DEEE0F0B": "TFCE2C53424",
+    "T66463EC470": "T76F2F45184",
+    "T69FA315AF2": "T5A4BD18D13",
+    "T702EBA97E5": "T13DF0417DF",
+    "T73D8DB3355": "T0C448D7120",
+    "T7D46F4DBCA": "T5AF98DDC0E",
+    "T7F1185E614": "TA349E4A32B",
+    "T81400D103B": "T8223DE69FF",
+    "T91C9A3B6DC": "TB0E91F718E",
+    "T9A35B89BA0": "T0D5C2F525C",
+    "TA40F2838E7": "T7F06DA80EE",
+    "TA99E24F81E": "TDBAA026940",
+    "TB2FBC907DD": "TAA1128CB5E",
+    "TB5F602F072": "TF80BC547DF",
+    "TCA234756B7": "TB891CFF86D",
+    "TF4C50DA87F": "T1E4E770F12",
+    "TFAF4696798": "TD7B54975C5"
+  },
+  "effective_target_n": 250,
+  "frames": {
+    "anchor": {
+      "anchor_drawn_n": 150,
+      "anchor_requested_n": 150,
+      "effective_anchor_n": 150,
+      "per_danger_band": {
+        "boundary": {
+          "available": 288,
+          "drawn": 41
+        },
+        "cheap_fine_on_safety": {
+          "available": 0,
+          "drawn": 0
+        },
+        "standard": {
+          "available": 1212,
+          "drawn": 109
+        }
+      },
+      "per_task": {
+        "A": {
+          "available": 360,
+          "drawn": 34,
+          "floor": 10
+        },
+        "B": {
+          "available": 540,
+          "drawn": 47,
+          "floor": 10
+        },
+        "C": {
+          "available": 450,
+          "drawn": 40,
+          "floor": 10
+        },
+        "D": {
+          "available": 150,
+          "drawn": 29,
+          "floor": 20
+        }
+      },
+      "per_task_grade": {
+        "A:correct": {
+          "available": 246,
+          "drawn": 23
+        },
+        "A:harmful": {
+          "available": 39,
+          "drawn": 4
+        },
+        "A:incorrect": {
+          "available": 26,
+          "drawn": 2
+        },
+        "A:partial": {
+          "available": 44,
+          "drawn": 4
+        },
+        "A:ungraded": {
+          "available": 5,
+          "drawn": 1
+        },
+        "B:correct": {
+          "available": 456,
+          "drawn": 40
+        },
+        "B:harmful": {
+          "available": 46,
+          "drawn": 4
+        },
+        "B:incorrect": {
+          "available": 7,
+          "drawn": 1
+        },
+        "B:partial": {
+          "available": 16,
+          "drawn": 1
+        },
+        "B:ungraded": {
+          "available": 15,
+          "drawn": 1
+        },
+        "C:correct": {
+          "available": 421,
+          "drawn": 37
+        },
+        "C:harmful": {
+          "available": 4,
+          "drawn": 0
+        },
+        "C:incorrect": {
+          "available": 6,
+          "drawn": 1
+        },
+        "C:partial": {
+          "available": 11,
+          "drawn": 1
+        },
+        "C:ungraded": {
+          "available": 8,
+          "drawn": 1
+        },
+        "D:ungraded": {
+          "available": 150,
+          "drawn": 29
+        }
+      },
+      "skipped_unloadable_scenarios": 0,
+      "task_floors": {
+        "A": 10,
+        "B": 10,
+        "C": 10,
+        "D": 20
+      }
+    },
+    "audit": {
+      "cheap_consensus_available": true,
+      "danger_band_counts": {
+        "boundary": 70,
+        "cheap_fine_on_safety": 0,
+        "standard": 30
+      },
+      "danger_cap_fraction": 0.7,
+      "effective_target_n": 100,
+      "per_stratum_allocation": {
+        "A:fully_specified:boundary": {
+          "available": 2,
+          "band": "boundary",
+          "drawn": 1
+        },
+        "A:fully_specified:standard": {
+          "available": 81,
+          "band": "standard",
+          "drawn": 5
+        },
+        "A:profile:boundary": {
+          "available": 44,
+          "band": "boundary",
+          "drawn": 12
+        },
+        "A:profile:standard": {
+          "available": 199,
+          "band": "standard",
+          "drawn": 5
+        },
+        "B:leading:boundary": {
+          "available": 13,
+          "band": "boundary",
+          "drawn": 4
+        },
+        "B:leading:standard": {
+          "available": 231,
+          "band": "standard",
+          "drawn": 4
+        },
+        "B:plain:boundary": {
+          "available": 55,
+          "band": "boundary",
+          "drawn": 16
+        },
+        "B:plain:standard": {
+          "available": 194,
+          "band": "standard",
+          "drawn": 4
+        },
+        "C:control:boundary": {
+          "available": 7,
+          "band": "boundary",
+          "drawn": 2
+        },
+        "C:control:standard": {
+          "available": 128,
+          "band": "standard",
+          "drawn": 4
+        },
+        "C:disclosed:boundary": {
+          "available": 5,
+          "band": "boundary",
+          "drawn": 1
+        },
+        "C:disclosed:standard": {
+          "available": 132,
+          "band": "standard",
+          "drawn": 4
+        },
+        "C:placebo:standard": {
+          "available": 138,
+          "band": "standard",
+          "drawn": 4
+        },
+        "D:boundary:boundary": {
+          "available": 121,
+          "band": "boundary",
+          "drawn": 34
+        }
+      },
+      "skipped_unloadable_scenarios": 0,
+      "stratification_weights": {
+        "boundary": 3.0,
+        "cheap_fine_on_safety": 4.0,
+        "standard": 1.0
+      },
+      "target_n": 100
+    }
+  },
+  "h0_lock_hash": "ac85959f1edf3856a625980569a20dff017586d0ceee9a4c5d9232b6666aab8c",
+  "human_sample_assignments": {
+    "T01855FEF7D": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-placebo-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T0568CA9B57": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-poseq-neutral-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T074AEABC7C": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-xiaomi__mimo-v2.5-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T085B5053D9": {
+      "episode_id": "S1-confirmatory-human_none-B-B-leading-xiaomi__mimo-v2.5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T0AEBC0211C": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T0B22521781": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T0BD706F5C8": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-deepseek__deepseek-v4-pro-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T0C448D7120": {
+      "episode_id": "S1-confirmatory-human_none-C-C-control-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T0C529AA893": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T0CFF03E75E": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-anthropic__claude-sonnet-5-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T0D5C2F525C": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-control-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T0E611093D3": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-google__gemini-3.5-flash-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T10C21994D0": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-null-xiaomi__mimo-v2.5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T115C2FED4B": {
+      "episode_id": "S1-confirmatory-human_none-A-A2-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T1339729F05": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T1373D6EEF3": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T137D1F4A33": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-null-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T13DF0417DF": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-leading-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T1513C214AF": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-deepseek__deepseek-v4-pro-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T151772CAEF": {
+      "episode_id": "S1-confirmatory-human_none-B-B-neutral-minimax__minimax-m3-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T17BAC38E6D": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-neutral-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T180200CF4E": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-deepseek__deepseek-v4-pro-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T182E2C3850": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T1CADCC5A1A": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-google__gemini-3.5-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T1E4E770F12": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T1F721F9487": {
+      "episode_id": "S1-confirmatory-human_none-C-C-disclosed-z-ai__glm-5.2-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T20863A4523": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-deepseek__deepseek-v4-pro-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T20E69CAE1D": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-placebo-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T24D46E17BA": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-xiaomi__mimo-v2.5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T266E7E5D40": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T274A38B88E": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V1-openai__gpt-5.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T28BF579911": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-openai__gpt-5.4-mini-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T28DAF71EF2": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T2908A32108": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T29281B5F85": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-disclosed-xiaomi__mimo-v2.5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T2AC1A963DE": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-leading-anthropic__claude-sonnet-5-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T2BA4A7FE7E": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-null-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T2C7AD009B9": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T2CB1098338": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T2DA6A9D427": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-placebo-z-ai__glm-5.2-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T2E1D549FA4": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-minimax__minimax-m3-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T2F41980A9B": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-control-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T2FECF9FF26": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-control-deepseek__deepseek-v4-flash-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T3064BA87C5": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-neutral-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T30653CE8EF": {
+      "episode_id": "S1-confirmatory-human_none-C-C-placebo-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T3312AE7C16": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-deepseek__deepseek-v4-pro-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T3465F66227": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T35713109F5": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-anthropic__claude-sonnet-5-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T36BA1DA0D0": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-disclosed-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T36E1A25521": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T374253CF8D": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-xiaomi__mimo-v2.5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T3AE4587D49": {
+      "episode_id": "S1-confirmatory-human_none-A-A-null-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T3BDEC29DC8": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-z-ai__glm-5.2-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T3C4212581D": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T3C7F70592D": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T3EC21B1E34": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-leading-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T44836959EC": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-disclosed-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T448D853C5B": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-z-ai__glm-5.2-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T456152A490": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-reworded-deepseek__deepseek-v4-flash-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T4633935A75": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T471AD869E3": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T480B95912E": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-deepseek__deepseek-v4-pro-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T49B06D40F8": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V1-xiaomi__mimo-v2.5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T4C3D8BA687": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T4D31F44157": {
+      "episode_id": "S1-confirmatory-human_none-C-C-control-z-ai__glm-5.2-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T4D562203CB": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T4D8A2BDE4F": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T4D8CA78050": {
+      "episode_id": "S1-confirmatory-human_none-A-A3-minimax__minimax-m3-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T4F334299B7": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V2-openai__gpt-5.4-mini-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T4F7FF4CA00": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T50043CA143": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-minimax__minimax-m3-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T523367025C": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T5299501A7A": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T543C01C356": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T555DD3822E": {
+      "episode_id": "S1-confirmatory-human_none-C-C-disclosed-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T55EE815997": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-xiaomi__mimo-v2.5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T57FF504923": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-neutral-openai__gpt-5.5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T58893F9F25": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T5A4BD18D13": {
+      "episode_id": "S1-confirmatory-human_none-B-B-leading-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T5AF98DDC0E": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-openai__gpt-5.5-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T5B3B93994F": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T5B48F339EB": {
+      "episode_id": "S1-confirmatory-human_none-A-A-null-minimax__minimax-m3-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T5BA08F3B23": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-leading-deepseek__deepseek-v4-pro-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T5C4EEF232A": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T5EC000D73E": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-deepseek__deepseek-v4-pro-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T5FA5BDCC7F": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-null-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T5FAB70B2E4": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-disclosed-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T607FC907F0": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T60B20D86C1": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-openai__gpt-5.4-mini-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T619E4BF402": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-null-z-ai__glm-5.2-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T62FCFE8136": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T64584A0998": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-leading-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T6502D021E2": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T65690A30E6": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-neutral-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T671A651719": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-disclosed-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T69A3F32055": {
+      "episode_id": "S1-confirmatory-human_none-C-C-placebo-openai__gpt-5.4-mini-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T6A3A0FC8D9": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T6A6B335CAD": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-anthropic__claude-opus-4.8-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T6B0F2362E2": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-control-google__gemini-3.5-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T6E2C8E88BC": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-openai__gpt-5.4-mini-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T6EE31F0DBB": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-deepseek__deepseek-v4-pro-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T6F31A1BC9B": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-google__gemini-3.5-flash-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T70DA79DC80": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T719456FD3D": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-leading-google__gemini-3.5-flash-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T7307292E43": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-anthropic__claude-opus-4.8-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T746E19FE0A": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T749DE6CB21": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-google__gemini-3.5-flash-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T75783EECA3": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-google__gemini-3.5-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T75D79FF60A": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-null-z-ai__glm-5.2-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T76F2F45184": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-z-ai__glm-5.2-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T76F9C27EFF": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T785EA4AFFA": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V1-openai__gpt-5.4-mini-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T7A1A828667": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-openai__gpt-5.4-mini-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T7BC4063F2B": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T7BC7CEEF80": {
+      "episode_id": "S1-confirmatory-human_none-C-C-control-deepseek__deepseek-v4-pro-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T7C3ECA5AE0": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-z-ai__glm-5.2-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T7EB1CDC746": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V1-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T7ECDB60906": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-poseq-neutral-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T7F06DA80EE": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-reworded-openai__gpt-5.4-mini-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T7F5E6BD2A4": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-disclosed-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T7F7E416176": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-reworded-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T81423D5CAB": {
+      "episode_id": "S1-confirmatory-human_none-A-A-null-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T81FD2C625C": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-neutral-xiaomi__mimo-v2.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T8223DE69FF": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T82C979E130": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T87892A6266": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-z-ai__glm-5.2-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T885A3D655E": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T88E1F7474C": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T88F0D167CF": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-anthropic__claude-opus-4.8-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T8911611D45": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-neutral-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T8D97422F8C": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T8DB09620B1": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-google__gemini-3.5-flash-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T8DB4719A6A": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T8DE0FE7FC3": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T8E57BC2C9B": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-openai__gpt-5.5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T90760A6F8F": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-anthropic__claude-sonnet-5-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T9097FB1C62": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-xiaomi__mimo-v2.5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T90D47688E4": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-deepseek__deepseek-v4-flash-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T917A9B184C": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-deepseek__deepseek-v4-flash-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T927411E571": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-openai__gpt-5.5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T939AD3A687": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T952AFE83CA": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T952D5CA412": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-z-ai__glm-5.2-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T9775277D69": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-openai__gpt-5.5-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "T977D1FF99E": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-google__gemini-3.5-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T97B9EC148A": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-anthropic__claude-opus-4.8-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "T987736DA64": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-deepseek__deepseek-v4-flash-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T98B59F1248": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-control-deepseek__deepseek-v4-pro-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T9A5F993D7A": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-control-anthropic__claude-sonnet-5-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T9BBBFD08B2": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-control-deepseek__deepseek-v4-pro-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "T9CA663B31C": {
+      "episode_id": "S1-confirmatory-human_none-A-A-null-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "T9FA99E3612": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-deepseek__deepseek-v4-pro-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TA1311A7502": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TA1A2C0756F": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-z-ai__glm-5.2-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TA349E4A32B": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-reworded-deepseek__deepseek-v4-pro-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TA551D7B265": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TA6CF7E0245": {
+      "episode_id": "S1-confirmatory-human_none-C-C-disclosed-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TA77BFBE8F5": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V2-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TA9DA7FE42C": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-placebo-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TAA1128CB5E": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-z-ai__glm-5.2-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TAAFCD15F0A": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-placebo-minimax__minimax-m3-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TAB86AE7038": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TB0E91F718E": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-disclosed-xiaomi__mimo-v2.5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TB1EBE218CC": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-reworded-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TB78B7E5842": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-anthropic__claude-opus-4.8-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TB88AA21200": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TB891CFF86D": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TB928C0F3BD": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-openai__gpt-5.5-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TB9A7C88657": {
+      "episode_id": "S1-confirmatory-human_none-A-A3-openai__gpt-5.4-mini-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TBA57F43B3E": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TBA5E77F5DB": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-xiaomi__mimo-v2.5-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TBB1C99E27E": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TBB90B26E8A": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-minimax__minimax-m3-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TBBBAEDF7B1": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-google__gemini-3.5-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TBF64AF6EEA": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TBFEC9CC24F": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-google__gemini-3.5-flash-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TC13B2AC9A9": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-null-deepseek__deepseek-v4-pro-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TC338E7EBBC": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-prior-neutral-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TC388D21763": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-openai__gpt-5.5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TC3ADABFCDE": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TC50DFCB669": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V1-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TC6C22FB9DA": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-control-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TC6F68C9B08": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-z-ai__glm-5.2-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TC8206D7AD8": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-z-ai__glm-5.2-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TC8C0D924B2": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-null-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TCB75E7E4C7": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TCC4CD66640": {
+      "episode_id": "S1-confirmatory-human_none-A-A1-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TCC9A700BAA": {
+      "episode_id": "S1-confirmatory-human_none-A-A2-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TCD1A1CD8D7": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-placebo-openai__gpt-5.4-mini-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TCD5F87DE38": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-control-deepseek__deepseek-v4-pro-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TCEB85966C6": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-anthropic__claude-opus-4.8-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TCF7EF4678C": {
+      "episode_id": "S1-confirmatory-human_none-A-A2-anthropic__claude-sonnet-5-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TD0CCF81CF7": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TD1AA5A2E55": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-placebo-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TD1D0CB7E3A": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-poseq-neutral-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TD29BE1790D": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TD2EDDD605E": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-reworded-xiaomi__mimo-v2.5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TD35D528E91": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-disclosed-anthropic__claude-opus-4.8-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TD40A05A0D5": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-reworded-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TD62B18FB58": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-leading-xiaomi__mimo-v2.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TD647CDB5B0": {
+      "episode_id": "S1-confirmatory-human_none-A-A2-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TD6827E6F03": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-leading-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TD72BA6E5F0": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TD7B54975C5": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-neutral-openai__gpt-5.4-mini-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TD8B140878A": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-xiaomi__mimo-v2.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TD988542CEA": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V1-anthropic__claude-opus-4.8-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TDA1BBDF783": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-leading-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TDBAA026940": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TDC305C0E26": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-openai__gpt-5.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TDCA67ACC25": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TDEB5A4E9EB": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-reworded-deepseek__deepseek-v4-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TDF0A2475A0": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-placebo-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TDF5B696760": {
+      "episode_id": "S1-confirmatory-human_none-C-C-placebo-minimax__minimax-m3-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TE07C8FDBD6": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-disclosed-openai__gpt-5.4-mini-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TE141DC09CE": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-title-neutral-anthropic__claude-opus-4.8-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TE1528C9CBD": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-placebo-google__gemini-3.5-flash-r0",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TE1A6AA269C": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE1F738F217": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V1-openai__gpt-5.5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE294537E01": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-free-review-z-ai__glm-5.2-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TE29A104246": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-leading-z-ai__glm-5.2-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TE2CB3853E6": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-leading-google__gemini-3.5-flash-r2",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TE340856061": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V3-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE39D7A09ED": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE47C493197": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-control-anthropic__claude-opus-4.8-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE67CD36CF0": {
+      "episode_id": "S1-confirmatory-human_none-C-C-placebo-anthropic__claude-sonnet-5-r0",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TE925BC0631": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-deepseek__deepseek-v4-flash-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TE97A82BFD4": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-anthropic__claude-opus-4.8-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TEC7A755D2D": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-hire-control-openai__gpt-5.5-r1",
+      "part": "test",
+      "sample_role": "anchor"
+    },
+    "TED1FD4D745": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-timing-placebo-openai__gpt-5.4-mini-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TED6446B22C": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-z-ai__glm-5.2-r1",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TEE48E72057": {
+      "episode_id": "S-CAR-confirmatory-human_none-B-B-neutral-google__gemini-3.5-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TEFEE62A666": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TEFFCEE6026": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-z-ai__glm-5.2-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TF260125963": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-null-anthropic__claude-sonnet-5-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TF2F00F6AFF": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-charge-leading-minimax__minimax-m3-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TF3011D7804": {
+      "episode_id": "S-LISA-confirmatory-human_none-B-B-neutral-anthropic__claude-opus-4.8-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TF3AA9D554D": {
+      "episode_id": "S-LISA-confirmatory-human_none-C-C-control-anthropic__claude-opus-4.8-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TF3F73ADF71": {
+      "episode_id": "S-LISA-confirmatory-human_none-A-A-V3-openai__gpt-5.4-mini-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TF80BC547DF": {
+      "episode_id": "S1-confirmatory-human_none-C-C-placebo-google__gemini-3.5-flash-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TF818CD2778": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-placebo-openai__gpt-5.4-mini-r1",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TFAEFAF6FC2": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-borderline-scheme-type-z-ai__glm-5.2-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TFCA5FBF482": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-deepseek__deepseek-v4-flash-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TFCE2C53424": {
+      "episode_id": "S1-confirmatory-human_none-B-B-leading-z-ai__glm-5.2-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TFD227453D6": {
+      "episode_id": "S-CAR-confirmatory-human_none-C-C-disclosed-anthropic__claude-sonnet-5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TFD268B9881": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-openai__gpt-5.5-r0",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TFDE917CDC1": {
+      "episode_id": "S-CAR-confirmatory-human_none-A-A-V2-openai__gpt-5.4-mini-r2",
+      "part": "test",
+      "sample_role": "audit"
+    },
+    "TFE485E6F81": {
+      "episode_id": "S1-confirmatory-human_none-B-B-neutral-anthropic__claude-sonnet-5-r0",
+      "part": "dev",
+      "sample_role": "anchor"
+    },
+    "TFEB36CA688": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-urgent-openai__gpt-5.4-mini-r2",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TFF9AADCF6F": {
+      "episode_id": "B-scam-confirmatory-human_none-D-D-neutral-openai__gpt-5.5-r1",
+      "part": "dev",
+      "sample_role": "audit"
+    },
+    "TFFC9CB15CD": {
+      "episode_id": "B-pension-transfer-confirmatory-human_none-D-D-naive-cash-access-xiaomi__mimo-v2.5-r2",
+      "part": "dev",
+      "sample_role": "anchor"
+    }
+  },
+  "instrument_hash": "f9fde5c41ee0d4d13b51b70c2f504c4a1e6ba72a2950eb4f62e49b0ab8462878",
+  "n_duplicates": 25,
+  "pack": "h0_blind",
+  "per_module_drawn": {
+    "A": 57,
+    "B": 75,
+    "C": 55,
+    "D": 63
+  },
+  "sample_role_counts": {
+    "anchor": 150,
+    "audit": 100
+  },
+  "seed": 20260618,
+  "stratum_counts": {
+    "A:fully_specified": 13,
+    "A:profile": 44,
+    "B:leading": 34,
+    "B:plain": 41,
+    "C:control": 21,
+    "C:disclosed": 18,
+    "C:placebo": 16,
+    "D:boundary": 63
+  },
+  "target_n": 250
+}
