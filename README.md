@@ -44,8 +44,9 @@ One scenario is put to a model in three framed versions, facts withheld, facts w
 | Scoring failures | 0.25 per cent |
 | Simulated-user leak rate | 1.13 per cent, and a leaked conversation is re-run |
 | API cost | $197.74 |
-| Instrument frozen | 2026-07-07T21:14:06Z, hash begins `f9fde5c4`, zero drift |
-| Logged deviations since the freeze | 8 |
+| Instrument frozen | 2026-07-07T21:14:06Z, hash began `f9fde5c4`, zero drift |
+| Instrument hash now | `f0f10214`, after the ninth logged deviation, still zero drift |
+| Logged deviations since the freeze | 9 |
 | Test suite | about 785 tests |
 
 ---
@@ -63,6 +64,8 @@ One scenario is put to a model in three framed versions, facts withheld, facts w
 | `code/scenarios/*.json` | The scenario bank. Every item that entered the study. |
 | `code/data/` | The confirmatory run: conversations, gradings, routing, metrics. |
 | `build/html-viewer/v6/` | The results explorer. Recomputes every displayed number at build time. |
+| `code/data/audit/` | The human coding, and an independent audit of 34 boundary episodes. |
+| `writeup/` | Working notes behind the results and methods chapters. |
 | `misc/` | The assessment brief. |
 
 ---
@@ -74,8 +77,12 @@ The claim that the method predated the results does not rest on trust. `freeze_r
 ```bash
 cd code
 python3.12 -m venv .venv && .venv/bin/pip install -e .
-.venv/bin/python freeze.py verify --config config.yaml
+.venv/bin/python freeze.py --verify
 ```
+
+It returns `OK_LOGGED_DEVIATION` with an empty `drifted_files` list, which means every
+file matches what the record says it should be, and every change since the freeze is
+logged with a date and a reason.
 
 ---
 
@@ -105,3 +112,5 @@ Requires Python 3.11 or newer. Dependencies are declared in `code/pyproject.toml
 The graders were **calibrated** against the frontier council, never validated by it. Agreement among several models shows only that they are consistent, not that they are right, and checking an automated marker against other automated markers is circular. Validity rests on blind human coding of a stratified 275-case sample, gated on weighted Cohen's kappa with bars fixed in advance at 0.75 and 0.80, read on the lower bound of the interval.
 
 The several layers of marking are related layers of one machine rather than independent corroboration. The Outcome grade is partly determined by the Ask and Resist labels by construction, and the report says so.
+
+Two things about the reliability gate are worth knowing before reading any number here. The gate could not ingest a human coding at all until 21 August 2026, because its metadata check rejected every episode in the run before consulting the sampling manifest, and I found that by running the gate against a synthetic fixture built to exercise the pipeline. The repair is the ninth logged deviation. The second thing is structural, which is that the gate compares the human coder against the frontier council, and the council only graded episodes the pre-registered triggers escalated to it, so only Module A has enough overlapping cases to reach its own threshold. Until that gate clears, every quantity in the results reports as estimation rather than as a confirmed finding, and none of them has been relabelled to read otherwise.
