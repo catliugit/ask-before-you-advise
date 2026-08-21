@@ -64,9 +64,8 @@ One scenario is put to a model in three framed versions, facts withheld, facts w
 | `code/scenarios/*.json` | The scenario bank. Every item that entered the study. |
 | `code/data/` | The confirmatory run: conversations, gradings, routing, metrics. |
 | `build/html-viewer/v6/` | The results explorer. Recomputes every displayed number at build time. |
-| `code/data/audit/` | The human coding, and an independent audit of 34 boundary episodes. |
+| `code/data/audit/` | The 275-row blind coding review, and an independent audit of 34 boundary episodes. |
 | `writeup/` | Working notes behind the results and methods chapters. |
-| `misc/` | The assessment brief. |
 
 ---
 
