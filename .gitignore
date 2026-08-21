@@ -6,3 +6,11 @@ __pycache__/
 .venv/
 .omc/
 .claude/
+
+# Coder pack: raw model output, deliberately excluded from the replication
+# package. Regenerate with code/rebuild_coder_transcripts.py
+code/data/handcoding/transcripts.jsonl
+code/data/handcoding/T*.md
+
+# Generated coding tools
+tools/

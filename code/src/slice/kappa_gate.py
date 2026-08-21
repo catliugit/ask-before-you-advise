@@ -1530,9 +1530,27 @@ def _eligible_human_sample(
     return [
         episode
         for episode in episodes
-        if is_human_sample_record(episode)
+        if _is_gated_human_record(episode, assignments)
         and _human_sample_part(episode, assignments) == sample_part
     ]
+
+
+def _is_gated_human_record(episode: dict[str, Any], assignments: dict[str, str]) -> bool:
+    """Whether the gate may treat this episode as part of the human sample.
+
+    is_human_sample_record refuses a confirmatory-phase episode outright. The
+    handcode export was deviated (8 Jul 2026) to draw the blind sample from the
+    confirmatory pool when nothing carries a human_dev/human_test phase, so no
+    episode in this run carries one and the gate could never ingest a human
+    coding at all. A dev/test assignment in handcode_pack_manifest.json is the
+    authoritative record that an episode was drawn into the pack, so honour it
+    here as well as the phase tag.
+    """
+
+    if is_human_sample_record(episode):
+        return True
+    code = stable_code(str(episode.get("episode_id", "")))
+    return assignments.get(code) in {"dev", "test"}
 
 
 def _human_sample_part(episode: dict[str, Any], assignments: dict[str, str]) -> str:
@@ -1615,10 +1633,11 @@ def _assert_human_split_metadata(
             if is_calibration_gate_record(episode):
                 raise ValueError(f"human-coded rows cannot include calibration_gate episodes; episode_id={episode_id}")
             code = stable_code(str(episode_id))
-            if not is_human_sample_record(episode):
+            if not _is_gated_human_record(episode, assignments):
                 raise ValueError(
-                    "human-coded rows require phase in {human_dev,human_test} "
-                    "or explicit human_sample in {dev,test}; "
+                    "human-coded rows require phase in {human_dev,human_test}, "
+                    "explicit human_sample in {dev,test}, or a dev/test assignment "
+                    "in handcode_pack_manifest.json; "
                     f"episode_id={episode_id}"
                 )
             if code in assignments:

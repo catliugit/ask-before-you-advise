@@ -124,6 +124,16 @@
       "new_instrument_hash": "f8dd3aedbcaa0becc157a54816c28f1f5c3a16142e117781502b255287e6749b",
       "what_changed": "One code comment neutralized: a personal-name attribution in the trio comment replaced with a dated neutral phrasing. No key, value, or behaviour changed.",
       "why": "Personal references are being removed from the tree ahead of the project handover, decided 8 July 2026. Comment-only change."
+    },
+    {
+      "date": "2026-08-21T06:52:00Z",
+      "drifted_files": [
+        "code/src/slice/kappa_gate.py"
+      ],
+      "file": "code/src/slice/kappa_gate.py",
+      "new_instrument_hash": "f0f10214597e04f0d2042f81d1ea431796014bac391313258888e585b0d32e23",
+      "what_changed": "_assert_human_split_metadata and _eligible_human_sample now accept an episode as human-sample when handcode_pack_manifest.json assigns it a dev/test part, via a new _is_gated_human_record helper, instead of relying on is_human_sample_record alone.",
+      "why": "The 8 July handcode.py deviation moved the blind sample draw to the confirmatory pool, but the gate side was never updated to match. is_human_sample_record returns False for any confirmatory-phase episode before it consults the manifest, and all 1500 episodes are phase=confirmatory with human_sample=none, so the gate raised ValueError on every human-coded row and could not ingest a human coding at all. Discovered 21 August 2026 by running the gate against a synthetic fixture. The manifest already records part=dev/test for all 250 sampled codes, so the assignment is the authoritative record that an episode was drawn into the pack. No grading rule, prompt, routing rule or analysed quantity changes; the gate now runs and returns per-module verdicts."
     }
   ],
   "encoding_note": "Files are read as bytes, CRLF and lone CR are normalised to LF, then SHA-256 is computed. No JSON canonicalisation, whitespace stripping, case folding, or canary normalisation is applied.",
@@ -359,9 +369,9 @@
       "sha256": "4f158ef6a1e8781d0b6089bde268fc831f191b06bd2e37107dbf87f0907a3699"
     },
     {
-      "bytes": 70406,
+      "bytes": 71365,
       "path": "code/src/slice/kappa_gate.py",
-      "sha256": "7ea3b01ace4fb48ff43a96dd98da74ce21fc6120886313a77ae37ee61993d93b"
+      "sha256": "631ef844163b019813698a067edb54b8e4ed8d073274b6c427f0c66a6f2c9867"
     },
     {
       "bytes": 17190,
