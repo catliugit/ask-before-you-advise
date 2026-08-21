@@ -14,3 +14,6 @@ code/data/handcoding/T*.md
 
 # Generated coding tools
 tools/
+
+# Excel lock files
+~$*
