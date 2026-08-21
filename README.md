@@ -13,7 +13,7 @@ Read these four files, in this order. They are the study.
 1. **`pre-registration.md`** is the method of record. It was written and committed before any data existed, and it is what the freeze locks.
 2. **`grading-codebook.md`** is the instrument. It grades each model answer as if a regulated adviser had produced it, with every rule tied to a named FCA provision.
 3. **`freeze_record.md`** is the proof that the method predated the results, with the instrument hash and the deviations logged since.
-4. **`code/data/RESULTS.md`** is the output of the pre-registered analysis, run once.
+4. **`writeup/RESULTS.md`** is every result read straight from the frozen analysis output, with the blocked and suppressed measures stated rather than worked around. The raw machine summary sits at `code/data/RESULTS.md`.
 
 Everything else supports those four.
 
@@ -65,7 +65,7 @@ One scenario is put to a model in three framed versions, facts withheld, facts w
 | `code/data/` | The confirmatory run: conversations, gradings, routing, metrics. |
 | `build/html-viewer/v6/` | The results explorer. Recomputes every displayed number at build time. |
 | `code/data/audit/` | The 275-row blind coding review, and an independent audit of 34 boundary episodes. |
-| `writeup/` | Working notes behind the results and methods chapters. |
+| `writeup/` | Results as run, methods as run, and the human–council divergence pack. Every figure sourced from the frozen analysis output. |
 
 ---
 
