@@ -17,3 +17,6 @@ tools/
 
 # Excel lock files
 ~$*
+
+# University assessment brief, not part of the artefact
+misc/
